@@ -19,6 +19,8 @@ mongoose.connect(DB).then(() => {
 });
 
 //import routers
+const AppError = require("./utils/appError");
+const globalErrorHandler = require("./controllers/errorController");
 const userRouter = require("./routes/userRoutes");
 
 //create application object
@@ -31,7 +33,7 @@ app.set("view engine", "ejs");
 app.use(express.json()); //parses incoming request object as JSON
 app.use(express.static(`${__dirname}/public`)); //serves static files e.g. css/img/js
 
-//only runs middleware when development mode
+//only runs middleware when in development mode
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev")); // logs HTTP requests and errors
 }
@@ -45,7 +47,15 @@ app.get("/", (req, res) => {
 //routes
 app.use("/users", userRouter);
 
-//console.log(process.env);
+//handles all unhandled routes regardless of HTTP method
+//should always go after routes so that it is executed last
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalErrorHandler);
+
+console.log(`Running in ${process.env.NODE_ENV} mode`);
 
 //server listener
 const port = process.env.PORT;
