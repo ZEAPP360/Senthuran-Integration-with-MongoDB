@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
       message: "Passwords do not match",
     },
   },
+  passwordChangedAt: Date,
 });
 
 //prehook middleware specified on the schema
@@ -53,6 +54,22 @@ userSchema.methods.correctPassword = async function (
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+//checks if user changed password after token was issued
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+
+    //password changed means time stamp of JWT issued is less than changed timestamp of password
+    return JWTTimestamp < changedTimestamp;
+  }
+
+  // False means password was not changed
+  return false;
 };
 
 //creates model for schema
