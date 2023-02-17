@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcryptjs");
 
 //defined User Schema
 const userSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
-    unique: [true, "Username is taken"],
-    required: [true, "Please provide a Username!"],
+    required: [true, "Please tell us your name!"],
   },
   email: {
     type: String,
@@ -24,12 +24,26 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please confirm your password"],
     validate: {
+      //only works on user.save or user.create - keep in mind when doing update password function/not findOneAndUpdate
       validator: function (el) {
         return el === this.password;
       },
       message: "Passwords do not match",
     },
   },
+});
+
+//prehook middleware specified on the schema
+userSchema.pre("save", async function (next) {
+  //runs only if password was modified
+  if (!this.isModified("password")) return next();
+
+  //set current password to encrypted password by hashing it
+  this.password = await bcrypt.hash(this.password, 12);
+
+  //set to undefined so its not persisted to database - deletes the field
+  this.passwordConfirm = undefined;
+  next();
 });
 
 //creates model for schema
