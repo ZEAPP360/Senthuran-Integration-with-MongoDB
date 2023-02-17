@@ -185,20 +185,20 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 });
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
-  // 1) Get user from collection
+  //1)get user from collection
   const user = await User.findById(req.user.id).select("+password");
 
-  // 2) Check if POSTed current password is correct
+  //2)check if  current password submitted is correct
   if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
-    return next(new AppError("Your current password is wrong.", 401));
+    return next(new AppError("Your current password is wrong!", 401));
   }
 
-  // 3) If so, update password
+  //3)if submitted password is correct, update password
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;
   await user.save();
-  // User.findByIdAndUpdate will NOT work as intended!
+  //User.findByIdAndUpdate will not work due to validator in usermodel which only works on create/save
 
-  // 4) Log user in, send JWT
+  //4)log user in, send JWT
   createSendToken(user, 200, res);
 });
