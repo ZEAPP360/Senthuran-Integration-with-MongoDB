@@ -23,6 +23,7 @@ mongoose.connect(DB).then(() => {
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 const userRouter = require("./routes/userRoutes");
+const viewRouter = require("./routes/viewRoutes");
 
 //create application object
 const app = express();
@@ -46,16 +47,8 @@ if (process.env.NODE_ENV === "development") {
 //   console.log("Server is up and running");
 // });
 
-//renders
-app.get("/", (req, res) => {
-  res.status(200).render("base");
-});
-
-app.get("/login", (req, res) => {
-  res.status(200).render("login");
-});
-
-//routes
+//mount routes
+app.use("/", viewRouter);
 app.use("/users", userRouter);
 
 //handles all unhandled routes regardless of HTTP method
