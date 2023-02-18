@@ -1,4 +1,5 @@
 //import dependencies
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
@@ -28,10 +29,11 @@ const app = express();
 
 //set templating engine as ejs
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public"))); //serves static files e.g. css/img/js
 
 //middleware
 app.use(express.json()); //parses incoming request object as JSON
-app.use(express.static(`${__dirname}/public`)); //serves static files e.g. css/img/js
 
 //only runs middleware when in development mode
 if (process.env.NODE_ENV === "development") {
@@ -39,9 +41,18 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //check if server is running - test
+// app.get("/", (req, res) => {
+//   res.status(200).send("Server is working!!!");
+//   console.log("Server is up and running");
+// });
+
+//renders
 app.get("/", (req, res) => {
-  res.status(200).send("Server is working!!!");
-  console.log("Server is up and running");
+  res.status(200).render("base");
+});
+
+app.get("/login", (req, res) => {
+  res.status(200).render("login");
 });
 
 //routes
