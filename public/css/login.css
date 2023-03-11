@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff9a3c;
+  background-color: #fdb44b;
 }
 
 .container {
@@ -97,7 +97,7 @@ body {
 }
 
 .input-field input:is(:focus, :valid) {
-  border-bottom-color: #ff9a3c;
+  border-bottom-color: #fdb44b;
 }
 
 .input-field i {
@@ -110,7 +110,7 @@ body {
 }
 
 .input-field input:is(:focus, :valid) ~ i {
-  color: #ff9a3c;
+  color: #fdb44b;
 }
 
 .input-field i.icon {
@@ -140,7 +140,7 @@ body {
 }
 
 .form a.text {
-  color: #ff9a3c;
+  color: #fdb44b;
   text-decoration: none;
 }
 .form a:hover {
@@ -158,7 +158,7 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   border-radius: 6px;
-  background-color: #ff9a3c;
+  background-color: #fdb44b;
   cursor: pointer;
   transition: all 0.3s ease;
 }

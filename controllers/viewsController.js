@@ -1,5 +1,5 @@
-exports.getLandingPage = (req, res) => {
-  res.status(200).render("landing");
+exports.getHomePage = (req, res) => {
+  res.status(200).render("home");
 };
 
 exports.getLoginForm = (req, res) => {
@@ -8,11 +8,11 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
-exports.getArticles = (req, res) => {
-  res.status(200).render("articles");
+exports.getCalendar = (req, res) => {
+  res.status(200).render("calendar");
 };
 
-exports.getTaskManager = (req, res) => {
+exports.getKanban = (req, res) => {
   res.status(200).render("kanban");
 };
 
@@ -24,6 +24,10 @@ exports.getMeditation = (req, res) => {
   res.status(200).render("meditation");
 };
 
-exports.getChatBot = (req, res) => {
-  res.status(200).render("chatBot");
+exports.getChatRoom = (req, res) => {
+  res.status(200).render("chatRoom");
+};
+
+exports.getChatLobby = (req, res) => {
+  res.status(200).render("chatLobby");
 };

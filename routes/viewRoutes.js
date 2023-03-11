@@ -5,18 +5,20 @@ const authController = require("../controllers/authController");
 const router = express.Router();
 
 //renders
-router.get("/", viewsController.getLandingPage);
+router.get("/", viewsController.getHomePage);
 
 router.get("/login", viewsController.getLoginForm);
 
-router.get("/articles", viewsController.getArticles);
+router.get("/calendar", viewsController.getCalendar);
 
-router.get("/kanban", viewsController.getTaskManager);
+router.get("/kanban", viewsController.getKanban);
 
 router.get("/pomodoro", viewsController.getPomodoro);
 
 router.get("/meditation", viewsController.getMeditation);
 
-router.get("/chatBot", viewsController.getChatBot);
+router.get("/chatLobby", viewsController.getChatLobby);
+
+router.get("/chatRoom", viewsController.getChatRoom);
 
 module.exports = router;

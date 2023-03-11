@@ -200,5 +200,5 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   //User.findByIdAndUpdate will not work due to validator in usermodel which only works on create/save
 
   //4)log user in, send JWT
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
