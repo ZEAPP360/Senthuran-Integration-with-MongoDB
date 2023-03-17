@@ -1,9 +1,11 @@
 //import dependencies
 const path = require("path");
+const http = require("http");
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const socketio = require("socket.io");
 
 //loads environmental variables from .env file
 dotenv.config({ path: "./config.env" });
@@ -26,7 +28,10 @@ const userRouter = require("./routes/userRoutes");
 const viewRouter = require("./routes/viewRoutes");
 
 //create application object
+//create server
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 //set templating engine as ejs
 app.set("view engine", "ejs");
@@ -61,8 +66,16 @@ app.use(globalErrorHandler);
 
 console.log(`Running in ${process.env.NODE_ENV} mode`);
 
+//socket.io connection - run whens client connects
+io.on("connection", (socket) => {
+  console.log("New WebSocket Connection");
+
+  socket.emit("message", "Welcome to Chatroom");
+  console.log("message");
+});
+
 //server listener
 const port = process.env.PORT;
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/chatroom.css" />
+    <title>Chatroom Lobby</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-bar">
+        <i class="bx bx-menu sidebarOpen"></i>
+        <span class="logo navLogo"><a href="#">Clarity</a></span>
+
+        <div class="menu">
+          <div class="logo-toggle">
+            <span class="logo"><a href="#">Clarity</a></span>
+            <i class="bx bx-x siderbarClose"></i>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="#">Kanban</a></li>
+            <li><a href="#">Pomodoro</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Meditation</a></li>
+            <li><a href="#">Chatroom</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="join-container">
+      <header class="join-header">
+        <h1>Chatroom</h1>
+      </header>
+      <main class="join-main">
+        <form action="chatroom">
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username..."
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="room">Room</label>
+            <select name="room" id="room">
+              <option value="JavaScript">General Chat</option>
+              <option value="Python">Handling Stress</option>
+              <option value="PHP">Dealing With Anxiety</option>
+              <option value="C#">Student Wellbeing Tips</option>
+              <option value="Ruby">Feeling Lonely</option>
+            </select>
+          </div>
+          <button type="submit" class="btn">Join Chat</button>
+        </form>
+      </main>
+    </div>
+    <script src="js/navbar.js"></script>
+    <script src="js/chatroom.js"></script>
+  </body>
+</html>

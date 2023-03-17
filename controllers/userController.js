@@ -65,27 +65,27 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 exports.getUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Route is yet to be defined",
+    message: "1",
   });
 };
 
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Route is yet to be defined",
+    message: "2",
   });
 };
 
 exports.updateUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Route is yet to be defined",
+    message: "3",
   });
 };
 
 exports.deleteUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Route is yet to be defined",
+    message: "4",
   });
 };

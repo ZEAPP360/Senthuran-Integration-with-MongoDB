@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pomodoro.css">
+    <link rel="icon" type="image/svg" sizes="32x32" href="assets/pomodoro.svg" />
+
+    <title>Pomodoro</title>
+</head>
+
+<body>
+    <!-- edit modal  -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1>edit task</h1>
+    <input type="text" id="editInput" value="adssadsasadasdasdas">
+    <button id="editNow">edit</button>
+  </div>
+
+</div>
+    <section>
+        <header>
+            <nav>
+                <div class="nav-bar">
+                    <div style="display: flex;" class="nav-blocks">
+                        <img width="40px" src="icons/menu.png" alt="" id="sidebaropen" class="navOpen">
+                        <a href="index.html">
+                            <img src="icons/home.png" style="margin: 5px;" width="30px" alt="home">
+                        </a>
+                        <span class="logo navLogo"><a href="index.html">Clarity</a></span>
+                    </div>
+                    <div class="nav-blocks menu">
+                        <div class="logo-toggle">
+                            <span class="logo"><a href="#">Clarity</a></span>
+                            <img width="40px" src="icons/menu.png" alt="" id="sidebarclose" class="sidebarClose">
+                        </div>
+                        <ul class="nav-links">
+                            <li><a href="kanban">Kanban</a></li>
+                            <li><a href="pomodoro">Pomodoro</a></li>
+                            <li><a href="calendar">Calendar</a></li>
+                            <li><a href="meditation">Meditation</a></li>
+                            <li><a href="chatLobby">Chatroom</a></li>
+                            <li class="pc-log"><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-blocks last-nav">
+                        <ul>
+                            <li><img id="theme-change" src="icons/sun.png" alt="light"></li>
+                            <li><a href="#"><img src="icons/user.png" alt=""></a></li>
+                            <li class="mob-log"><a href="#"><img src="icons/logout.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <section>
+        <main>
+            <div class="flex-container">
+                <div class="flex-blocks">
+                    <div class="timer-div">
+                        <div class="buttons-timer-container">
+                            <button id="mode-pomodoro" class="mode-button mode-active">
+                                pomodoro
+                            </button>
+                            <button id="mode-shortbreak" class="mode-button">short break</button>
+                            <button id="mode-longbreak" class="mode-button">long break</button>
+                        </div>
+                        <canvas id="timer-canvas">
+                        </canvas>
+                        <div class="timer-outer-border">
+                            <div class="timer-inner-border">
+                                <div class="timer">
+                                    <div class="timer-display">
+                                        <div class="timer-minutes">20</div>
+                                        <div>:</div>
+                                        <div class="timer-seconds">00</div>
+                                    </div>
+                                    <button class="timer-control">START</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-overlay-backing">
+                            <div class="settings-overlay">
+                                <div class="settings-heading">
+                                    <h2>change time</h2>
+                                </div>
+                                <div class="settings-time">
+                                    <h3>TIME (MINUTES)</h3>
+                                    <div class="settings-time--buttons">
+                                        <div class="setting-time">
+                                            <h4>pomodoro</h3>
+                                                <div class="settings-buttons-time">
+                                                    <input type="number" value="20" id="jq-pomodoro-minutes">
+                                                    <div class="button-container">
+                                                        <button id="jq-pomodoro-up" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/up.png" alt="" />
+                                                        </button>
+                                                        <button id="jq-pomodoro-down" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/down.png" alt="" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                        </div>
+    
+                                        <div class="setting-time">
+                                            <h4>short break</h3>
+                                                <div class="settings-buttons-time">
+                                                    <input type="number" id="jq-shortbreak-minutes" value="5">
+                                                    <div class="button-container">
+                                                        <button id="jq-shortbreak-up" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/up.png" alt="" />
+                                                        </button>
+                                                        <button id="jq-shortbreak-down" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/down.png" alt="" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                        </div>
+    
+                                        <div class="setting-time">
+                                            <h4>long break</h3>
+                                                <div class="settings-buttons-time">
+                                                    <input type="number" id="jq-longbreak-minutes" value="15">
+                                                    <div class="button-container">
+                                                        <button id="jq-longbreak-up" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/up.png" alt="" />
+                                                        </button>
+                                                        <button id="jq-longbreak-down" class="modal-button modal-svg">
+                                                            <img width="10px" src="icons/down.png" alt="" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="button-apply-wrapper">
+                                    <button class="button-apply">Apply</button>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex-blocks container">
+                    <h1 style="font-size: 30px; text-align: center;">Tasks To Be Done</h1>
+                    <div class="input-field">
+                        <textarea placeholder="Enter your new todo"></textarea>
+                        <i class="uil uil-notes note-icon"></i>
+                    </div>
+                    <button onclick="addTodo()" class="add-button">Add Todo</button>
+                    
+
+                    <ul id="mytodos" class="todoLists"></ul>
+
+                    <div class="pending-tasks">
+                        <span>You have <span class="pending-num"> no </span> tasks pending.</span>
+                        <button onclick="clearAll()" class="clear-button">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="js/pomodoro.js"></script>
+</body>
+
+</html>

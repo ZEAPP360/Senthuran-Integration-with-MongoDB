@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+    rel="stylesheet"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/meditation.css" />
+
+    <!-- page title icon -->
+
+    <title>Meditation </title>
+  </head>
+  <body>
+    <nav>
+        <div class="nav-bar">
+          <i class="bx bx-menu sidebarOpen"></i>
+          <span class="logo navLogo"><a href="#">Clarity</a></span>
+  
+          <div class="menu">
+            <div class="logo-toggle">
+              <span class="logo"><a href="#">Clarity</a></span>
+              <i class="bx bx-x siderbarClose"></i>
+            </div>
+  
+            <ul class="nav-links">
+              <li><a href="#">Kanban</a></li>
+              <li><a href="#">Pomodoro</a></li>
+              <li><a href="#">Meditation</a></li>
+              <li><a href="#">ChatBot</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="app">
+      <div class="header">
+      
+              </div>
+
+      <div class="vid-container">
+        <video loop>
+         
+          <source src="./videos/Winter.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <!-- default container end -->
+
+      <!-- Time select Start -->
+      <div class="time-select">
+        <button data-time="120">2 Minutes</button>
+        <button data-time="300">5 Minutes</button>
+        <button data-time="600">10 Minutes</button>
+        <button data-time="900">15 Minutes</button>
+             </div>
+      <!-- Time select End -->
+
+      <!-- Player Container Start -->
+      <div class="player-container">
+        <audio class="song"><source src="./sounds/winter.mp3" /></audio>
+        <img src="./svg/play.svg" alt="play" class="play" />
+
+        <svg
+          class="track-outline"
+          width="453"
+          height="453"
+          viewBox="0 0 453 453"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="226.5"
+            cy="226.5"
+            r="216.5"
+            stroke="white"
+            stroke-width="20"
+          />
+        </svg>
+
+        <svg
+          class="moving-outline"
+          width="453"
+          height="453"
+          viewBox="0 0 453 453"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="226.5"
+            cy="226.5"
+            r="216.5"
+            stroke="#ff6f3c"
+            stroke-width="20"
+          />
+        </svg>
+
+        <img src="./svg/replay.svg" class="replay" />
+        <h3 class="time-display">00:00</h3>
+      </div>
+      <!-- Player Container End -->
+
+      <!-- Sound Picker Start -->
+      <div class="sound-picker">
+
+        <button data-sound="./sounds/rain.mp3" data-video="./videos/rain.mp4" name="Rain">
+          Rain
+          <img src="./svg/music.svg" alt="musicImage" class="musicImage hidden"></img>
+        </button>
+
+        <button data-sound="./sounds/beach.mp3" data-video="./videos/beach.mp4" name="Beach">
+          Beach
+          <img src="./svg/music.svg" alt="musicImage" class="musicImage hidden"></img>
+        </button>
+
+        <button data-sound="./sounds/bird.mp3" data-video="./videos/bird.mp4" name="Bird">
+          Bird
+          <img src="./svg/music.svg" alt="musicImage" class="musicImage hidden"></img>
+        </button>
+
+        <button data-sound="./sounds/piano.mp3" data-video="./videos/piano.mp4" name="Piano">
+          Piano
+          <img src="./svg/music.svg" alt="musicImage" class="musicImage hidden"></img>
+        </button>
+
+        <button data-sound="./sounds/relaxing.mp3" data-video="./videos/relaxing.mp4" name="Relaxing">
+          Relaxing
+          <img src="./svg/music.svg" alt="musicImage" class="musicImage hidden"></img>
+        </button>
+
+             </div> <!-- Sound Picker End-->
+      
+    </div> <!-- App div End -->
+    
+    <script src="js/meditation.js"></script>
+  </body>
+</html>

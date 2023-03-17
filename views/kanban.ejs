@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+
+    <link rel="stylesheet" href="css/kanban.css" />
+    <link
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <section>
+      <header>
+        <nav>
+          <div class="nav-bar">
+            <div style="display: flex" class="nav-blocks">
+              <img
+                width="40px"
+                src="menu.png"
+                alt=""
+                id="sidebaropen"
+                class="navOpen"
+              />
+              <a href="index.html">
+                <img
+                  src="icons/home.png"
+                  style="margin: 5px"
+                  width="30px"
+                  alt="home"
+                />
+              </a>
+              <span class="logo navLogo"><a href="index.html">Clarity</a></span>
+            </div>
+
+            <!-- <i id="side-boards" class="gg-sidebar-open sidebar"></i>     sideboards icon  -->
+            <!-- <img width="10px" class="sidebar" id="side-boards" src="hide.png" alt=""> -->
+            <div class="nav-blocks menu">
+              <div class="logo-toggle">
+                <span class="logo"><a href="#">Clarity</a></span>
+                <img
+                  width="40px"
+                  src="menu.png"
+                  alt=""
+                  id="sidebarclose"
+                  class="sidebarClose"
+                />
+                <!-- <i id="sidebarclose" class="gg-menu-right siderbarClose"></i> -->
+              </div>
+              <ul class="nav-links">
+                <li><a href="kanban">Kanban</a></li>
+                <li><a href="pomodoro">Pomodoro</a></li>
+                <li><a href="calendar">Calendar</a></li>
+                <li><a href="meditation">Meditation</a></li>
+                <li><a href="chatLobby">Chatroom</a></li>
+                <li class="pc-log"><a href="#">Logout</a></li>
+              </ul>
+            </div>
+            <div class="nav-blocks last-nav">
+              <ul>
+                <li>
+                  <img id="theme-change" src="icons/sun.png" alt="light" />
+                </li>
+                <li>
+                  <a href="#"><img src="icons/user.png" alt="" /></a>
+                </li>
+                <li class="mob-log">
+                  <a href="#"><img src="icons/logout.png" alt="" /></a>
+                </li>
+              </ul>
+            </div>
+            <img
+              width="10px"
+              class="sidebar"
+              id="side-boards"
+              src="icons/hide.png"
+              alt=""
+            />
+          </div>
+        </nav>
+      </header>
+    </section>
+
+    <section>
+      <main>
+        <div class="board">
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h1 class="editHead">Edit task</h1>
+              <input
+                id="editInput"
+                type="text"
+                value="old task text"
+                class="projectName"
+              />
+              <button id="editNow" class="addTask">Edit</button>
+            </div>
+          </div>
+          <aside id="myside">
+            <div id="aside" class="sidebar board-blocks">
+              <div id="aside-boards">
+                <h1 class="boards-title">all boards</h1>
+                <p
+                  onclick="switchBoards(this.id)"
+                  class="projects active-project"
+                  id="project-1"
+                >
+                  Main Board
+                  <span id="1" class="todo-controll"
+                    ><img
+                      onclick="editBoard(this)"
+                      class="edit"
+                      width="20px"
+                      src="pencil.png"
+                  /></span>
+                </p>
+              </div>
+              <div class="project_creaters">
+                <input
+                  type="text"
+                  id="NewProject"
+                  placeholder="project name"
+                  class="projectName"
+                />
+                <button id="addBoard" class="addTask">
+                  <span style="font: 100">+</span> Add Board
+                </button>
+              </div>
+            </div>
+          </aside>
+          <div id="my-boards" class="board-blocks">
+            <div id="board-1" class="currentBoard active">
+              <h1 id="board-1-head" class="projects-head">Main Board</h1>
+
+              <div class="lanes">
+                <div id="project-1-todo-lane-1-1" class="swim-lane todo-lane">
+                  <h3 class="heading">To-do</h3>
+
+                  <div class="creaters">
+                    <form
+                      aria-details="1"
+                      aria-label="1"
+                      id="project-1-form-1-1"
+                      onclick="mySubmit(this)"
+                    >
+                      <input
+                        type="text"
+                        id="project-1-input-1-1"
+                        placeholder="Task Name"
+                        class="projectName"
+                      />
+                      <button type="submit" class="addTask">
+                        <span style="font: 80">+</span> add task
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <div id="project-1-todo-lane-1-2" class="swim-lane">
+                  <h3 class="heading">Doing</h3>
+
+                  <div class="creaters">
+                    <form
+                      aria-details="2"
+                      aria-label="1"
+                      id="project-1-form-1-2"
+                      onclick="mySubmit(this)"
+                    >
+                      <input
+                        type="text"
+                        id="project-1-input-1-2"
+                        placeholder="Task Name"
+                        class="projectName"
+                      />
+                      <button type="submit" class="addTask">
+                        <span style="font: 80">+</span> add task
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <div id="project-1-todo-lane-1-3" class="swim-lane">
+                  <h3 class="heading">Done</h3>
+
+                  <div class="creaters">
+                    <form
+                      aria-details="3"
+                      aria-label="1"
+                      id="project-1-form-1-3"
+                      onclick="mySubmit(this)"
+                    >
+                      <input
+                        type="text"
+                        id="project-1-input-1-3"
+                        placeholder="Task Name"
+                        class="projectName"
+                      />
+                      <button type="submit" class="addTask">
+                        <span style="font: 80">+</span> add task
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+  </body>
+  <script src="js/kanban.js" defer></script>
+</html>
