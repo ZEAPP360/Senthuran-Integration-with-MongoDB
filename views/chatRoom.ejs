@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+  
+  
+    <link rel="stylesheet" href="css/kanban.css" />
+    <link rel="stylesheet" href="css/chatroom.css" />
+    <title>Chatroom</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-bar">
+          <div style="display: flex" class="nav-blocks">
+            <img
+              width="40px"
+              src="icons/menu.png"
+              alt=""
+              id="sidebaropen"
+              class="navOpen"
+            />
+            <a href="index.html">
+              <img
+                src="icons/home.png"
+                style="margin: 5px"
+                width="30px"
+                alt="home"
+              />
+            </a>
+            <span class="logo navLogo" style="margin-right: 40px;"><a href="home">Clarity</a></span>
+            &nbsp;&emsp;
+            &nbsp;&emsp;
+            &nbsp;&emsp;
+          </div>
+
+          <div class="nav-blocks menu">
+            <div class="logo-toggle">
+              <span class="logo"><a href="home">Clarity</a></span>
+              <img
+                width="40px"
+                src="icons/menu.png"
+                alt=""
+                id="sidebarclose"
+                class="sidebarClose"
+              />
+            </div>
+            <ul class="nav-links">
+           
+              <li><a href="kanban">Kanban</a></li>
+              <li><a href="pomodoro">Pomodoro</a></li>
+              <li><a href="calendar">Calendar</a></li>
+              <li><a href="meditation">Meditation</a></li>
+              <li><a href="chatLobby">Chatroom</a></li>
+              <li class="pc-log"><a href="#">Logout</a></li>
+            </ul>
+          </div>
+          <div class="nav-blocks last-nav">
+            <ul>
+              <li>
+                <img id="theme-change" src="icons/sun.png" alt="light" />
+              </li>
+              <li>
+                <a href="#"><img src="icons/user.png" alt="" /></a>
+              </li>
+              <li class="mob-log">
+                <a href="#" onclick="logout()"><img src="icons/logout.png" alt="" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="chat-container">
+      <header class="chat-header">
+        <h1>Chatroom</h1>
+        <a id="leave-btn" class="btn">Leave Room</a>
+      </header>
+      <main class="chat-main">
+        <div class="chat-sidebar">
+          <h3><i class="fas fa-comments"></i> Room Name:</h3>
+          <h2 id="room-name"></h2>
+          <h3><i class="fas fa-users"></i> Users</h3>
+          <ul id="users"></ul>
+        </div>
+        <div class="chat-messages">
+        </div>
+      </main>
+      <div class="chat-form-container">
+        <form id="chat-form">
+          <input
+            id="msg"
+            type="text"
+            placeholder="Enter Message"
+            required
+            autocomplete="off"
+          />
+          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+      integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chatroom.js"></script>
+  </body>
+</html>
